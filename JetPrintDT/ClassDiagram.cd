@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CAboutDlg" Collapsed="true">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAABAAAAAAAAAAEEAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintDT.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CExSplitterWnd" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIgBAEAAAAAAAgAAQCAAABhAhAAAASAAgAoBAAwAAA=</HashCode>
+      <FileName>EXSplitterWnd.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTDocTemplate" Collapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAIAAAAAAAIAAAAAIAIRAAA=</HashCode>
+      <FileName>JetPrintDT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTWinApp" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACABAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>JetPrintDT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTApp" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAkAAAAAAAABQAAAAAQCAAERAAACgAA=</HashCode>
+      <FileName>JetPrintDT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTDoc" Collapsed="true">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABCgAAQCAACBEAgAAgASggAAAAAAAQAAAAEAA=</HashCode>
+      <FileName>JetPrintDTDoc.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTSplitInfo" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAQAAAAAQIAAAAgAAAAAAA=</HashCode>
+      <FileName>JetPrintDTFrame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTFrame" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgABAAAAAAAAAAAAAAAAAACAAEAAAACAEAAAA=</HashCode>
+      <FileName>JetPrintDTFrame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPrintMotionControlView" Collapsed="true">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAECAIAAGBAAgCAAAAAAAEABBAAAAAgBAAA=</HashCode>
+      <FileName>PrintMotionControlView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPrintParamSetView" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAgAAgwEAEAkAOBAAgCgEASAAFEAIAUACBAYogUA=</HashCode>
+      <FileName>PrintParamSetView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPrintCameraView" Collapsed="true">
+    <Position X="19" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAGABAkAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PrintCameraView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMainTXTLeftView" Collapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAQBAAABAgAAACCJAoNBAoAAAQAAAAEhJWAIIAQA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMainBMPView" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQaEUsACSmBBEwEhCYhQDAAVAEgIBEUQUAgg=</HashCode>
+      <FileName>MainBMPView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMainDXFView" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAGABAgAAAgAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainDXFView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COutlookBar" Collapsed="true">
+    <Position X="17.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAABAAAAAAQABAAAAAAAAA=</HashCode>
+      <FileName>MainFrm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMainFrame" Collapsed="true">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>2VpYAF1lSw8KZ5AYqHd2/3js+fCC0ioHE4YfIgQcNJQ=</HashCode>
+      <FileName>MainFrm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMainTXTRightView" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAABABACAAAAGBIAoEAICAEAgEgAAAAAWAAAAAA=</HashCode>
+      <FileName>MainTXTRightView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometry" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAhAhCIAEBIEEwmAAUAABAAwQAAAoAIAAAAA=</HashCode>
+      <FileName>BMPPaint\Geometry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryCircle" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAABAIAAAAAAAAAAAABAACAAAAAgAIAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryCircle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryDrawStack" Collapsed="true">
+    <Position X="2.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEMNABQBCkSAAAAgAAwAACBAAAAAEwhAKAAAA4CIA=</HashCode>
+      <FileName>BMPPaint\GeometryDrawStack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryEllipse" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIAAAAAAAgAAAIAAAAAAAAAgAIAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryEllipse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryLine" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIAAAAAAAAAAAAAAAQAAAAAhAIAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryLine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryClassID" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgICCoIACBDAoC6Af0AAAAAAAAAgAkAACACgAAQAAQA=</HashCode>
+      <FileName>BMPPaint\GeometryObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryObject" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAYAgAAgAAEA=</HashCode>
+      <FileName>BMPPaint\GeometryObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryRect" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAEBAIAAAAAAAAAAAAAAAAAAAAAgAIAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryRect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryRectTractor" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAgAAAAAAAAAAAABAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryRectTractor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometrySquare" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAgAAAABAIAAAAAAAAAAAAAAAAAACAAgAAAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometrySquare.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryTriangle" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIABAYAAAAAAAAAAAAAAAAAgAIAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryTriangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCustomeDrawSingleton" Collapsed="true">
+    <Position X="19" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAABgAACAEAAAAAAIAAAAAAAAEAAAAAgUAAAAAA=</HashCode>
+      <FileName>CustomeDrawSingleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPrintDTList&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IgBIABICAAAAAACAACBAAAAQAANQQIAILEAgEIggAAA=</HashCode>
+      <FileName>JetPrintDTList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CHostInstance" Collapsed="true">
+    <Position X="20.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECCAwAACFAAgAAACAAAAAAEFAAAAAAAAAgAAAAAQA=</HashCode>
+      <FileName>HostInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetPanelWnd" Collapsed="true">
+    <Position X="29.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CECBABCYAAEAAAoCplAAQAAECDAAAEiAAgAECEAIwAA=</HashCode>
+      <FileName>JetPanelWnd.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPrintFileOperateView" Collapsed="true">
+    <Position X="23.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAGBAAgAAAAAAAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>PrintFileOperateView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPointF" Collapsed="true">
+    <Position X="35" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAQA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPrintPrintControlView" Collapsed="true">
+    <Position X="21" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAQAAAAAAAGBAAgAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>PrintPrintControlView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CResizableFormView" Collapsed="true">
+    <Position X="15" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABEAgAAAGAAAgAgAAAACAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ResizableFormView.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CResizableLayout" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAkgAAAACARgCAACCAAAAAAAAABBACAA=</HashCode>
+      <FileName>ResizableLayout.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLockableObject" Collapsed="true">
+    <Position X="33.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAQAAAAAgAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAA=</HashCode>
+      <FileName>SingletonBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSingletonBase" Collapsed="true">
+    <Position X="19" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAABAAAEAAAAAAQABAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>SingletonBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSingletonObserver" Collapsed="true">
+    <Position X="18.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAEAEAAgAAAAAAAQAQABEAAAAgAYAECAAAAAAA=</HashCode>
+      <FileName>SingletonBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSingletonTemplate&lt;T&gt;" Collapsed="true">
+    <Position X="20" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAABAAAAAAAAAQAQABEAAAAAAQAECAQAAAAE=</HashCode>
+      <FileName>SingletonTemplate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSplashWindow" Collapsed="true">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IASCQAATCAAEgUAA9IwIgBgogGBEIEMAAEQgBgAREIA=</HashCode>
+      <FileName>SplashWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometrySelect" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAhAIAAAAAAAAAAAAAAQAAAAAAiAAAAAgA=</HashCode>
+      <FileName>BMPPaint\GeometrySelect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryTextEdit" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAQAABIAAACAAAAgAAAAAAAAgAAEAAAAIEQAEA=</HashCode>
+      <FileName>BMPPaint\GeometryTextEdit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGeometryText" Collapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.75" />
+    <InheritanceLine Type="CGeometry" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="2.427" />
+        <Point X="4.75" Y="2.875" />
+        <Point X="10.125" Y="2.875" />
+        <Point X="10.125" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAhgIgAAAgAAAgAAAABAAAAQAAgAIAAIgA=</HashCode>
+      <FileName>BMPPaint\GeometryText.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartAxis" Collapsed="true">
+    <Position X="5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QGkgLIKiUrhpEwAsBiKCELyRgMgMClchEtTKiQAIQSE=</HashCode>
+      <FileName>ChartCtrl\ChartAxis.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartAxisLabel" Collapsed="true">
+    <Position X="29.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAIAAIEgCMAIABAACAAAAAQkCAMAgAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartAxisLabel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartBalloonLabel&lt;PointType&gt;" Collapsed="true">
+    <Position X="7.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAEAIMBgAgAAACAAAACAEgAwAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>ChartCtrl\ChartBalloonLabel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartBarSerie" Collapsed="true">
+    <Position X="14.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEMDChAQCJAAgBEABAwAAEAYgEkZIgABAAhAgQIAAg=</HashCode>
+      <FileName>ChartCtrl\ChartBarSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartCandlestickSerie" Collapsed="true">
+    <Position X="19.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAEgAQAgAAAAAwBAAQABEgCAAAAAAACEAAAAQ=</HashCode>
+      <FileName>ChartCtrl\ChartCandlestickSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartCrossHairCursor" Collapsed="true">
+    <Position X="15.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQCgEAAJAAAAAAABAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartCrossHairCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartCtrl" Collapsed="true">
+    <Position X="31.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAKIVCGUxEmECWAbAjYAAoFNCz8wIFiJI48NRHI+CSg=</HashCode>
+      <FileName>ChartCtrl\ChartCtrl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartCursorListener" Collapsed="true">
+    <Position X="33.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ChartCtrl\ChartCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartCursor" Collapsed="true">
+    <Position X="14.75" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgIABAAAAAAAggAAAAAgAAAAABAAggAACggAACAIAAA=</HashCode>
+      <FileName>ChartCtrl\ChartCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartDateTimeAxis" Collapsed="true">
+    <Position X="2.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAgAAIAgISAABAACEAAAAAQAAACAAAAQACIAgAIgSA=</HashCode>
+      <FileName>ChartCtrl\ChartDateTimeAxis.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartDragLineCursor" Collapsed="true">
+    <Position X="13.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACAAQAAgAAAIAAAAAAABAAIgAAAAAACAAIAAA=</HashCode>
+      <FileName>ChartCtrl\ChartDragLineCursor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartFont" Collapsed="true">
+    <Position X="35" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgIAAQAEACAAAAAACAAQAAAAAEAANgAAAABCA=</HashCode>
+      <FileName>ChartCtrl\ChartFont.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartGanttSerie" Collapsed="true">
+    <Position X="8" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAMBCgAAAAQAgAAACAgAAAAYgEkQIgABACAAAQAAAg=</HashCode>
+      <FileName>ChartCtrl\ChartGanttSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartGradient" Collapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartGradient.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartGrid" Collapsed="true">
+    <Position X="28" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAAAAAIEgAAAAAQAAQAAAAAAgCAAAgAAAQAICA=</HashCode>
+      <FileName>ChartCtrl\ChartGrid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartLabelProvider&lt;PointType&gt;" Collapsed="true">
+    <Position X="29.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>ChartCtrl\ChartLabel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartLabel&lt;PointType&gt;" Collapsed="true">
+    <Position X="7.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAAAgIAgAAAAAAAAGAAAAAAgAAIBAyAAAAAQA=</HashCode>
+      <FileName>ChartCtrl\ChartLabel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartLegend" Collapsed="true">
+    <Position X="31.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEMAAUAQBBgpEiACCACBgACAAAAgQgKBAAYCAAAJAEA=</HashCode>
+      <FileName>ChartCtrl\ChartLegend.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartLineSerie" Collapsed="true">
+    <Position X="10.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CogAAAAAIAAAAkAAAAAgAAggAAMAAAAAAAAAAEAAACQ=</HashCode>
+      <FileName>ChartCtrl\ChartLineSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartLogarithmicAxis" Collapsed="true">
+    <Position X="5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAIAAIAAAAAAACAABAAAAAAAABQgAACIAAAIgCA=</HashCode>
+      <FileName>ChartCtrl\ChartLogarithmicAxis.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartMouseListener" Collapsed="true">
+    <Position X="33.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAQEAAAAAAAAAQBAAAAABAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartMouseListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartPointsArray&lt;T&gt;" Collapsed="true">
+    <Position X="35" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIDAQQAwAgAxGEAAAEAAAAAADIEAgAAAAAOgCCBQCAA=</HashCode>
+      <FileName>ChartCtrl\ChartPointsArray.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartPointsSerie" Collapsed="true">
+    <Position X="17" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAAAEQwggABAAAgAAAAAgFgAAEAAAAAABAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartPointsSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartScrollBar" Collapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQJAEMAABAEAEAAAhIAAEAAAgAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>ChartCtrl\ChartScrollBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartSerie" Collapsed="true">
+    <Position X="13.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgEMAgABEAMJkgAISIQhCABQAAEiwgKEEAggQAgMBAE=</HashCode>
+      <FileName>ChartCtrl\ChartSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartSerieBase&lt;T&gt;" Collapsed="true">
+    <Position X="13.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEIgAQkgARCAAAAEAAAgAQAAACgAAAhBAkCAgIAAA=</HashCode>
+      <FileName>ChartCtrl\ChartSerieBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartSeriesMouseListener&lt;PointType&gt;" Collapsed="true">
+    <Position X="28" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAEAA=</HashCode>
+      <FileName>ChartCtrl\ChartSeriesMouseListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartStandardAxis" Collapsed="true">
+    <Position X="7.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAIAAIwAAAAACAAAAAAIAAAAAARAAACIAAAIgCA=</HashCode>
+      <FileName>ChartCtrl\ChartStandardAxis.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartSurfaceSerie" Collapsed="true">
+    <Position X="12.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAABAAAJCAgAEAAAgAAAAAAEAAAIAACAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartSurfaceSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartTitle" Collapsed="true">
+    <Position X="29.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAACABQoFgCAIAQABACAAAAAQgCAMAgAAAAEAAA=</HashCode>
+      <FileName>ChartCtrl\ChartTitle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChartXYSerie" Collapsed="true">
+    <Position X="13.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgCQAAgAQgIEAAAAAAAAAAAAAAAAAQAiAAA=</HashCode>
+      <FileName>ChartCtrl\ChartXYSerie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCellID" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAgAAQACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\CellRange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCellRange" Collapsed="true">
+    <Position X="28" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAQABCAMRAIAAAgEAYQFQAgAAAAAAAAgACEAQAA=</HashCode>
+      <FileName>JetPrintGridCtrl\CellRange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGridCell" Collapsed="true">
+    <Position X="10.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAEBUEAAR0AIjIAIMKGSAzoQgAACBACgAACACAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCell.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGridDefaultCell" Collapsed="true">
+    <Position X="10.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABEwBIAAAAAAAhAAAAADAAAwAAAAAAgAAAFIAAAQ=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCell.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGridCellBase" Collapsed="true">
+    <Position X="10.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABMAZUEABVkAZrIpAMAGSIwiQgAEWRACgAEAQDEA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCellBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGridCtrl" Collapsed="true">
+    <Position X="33.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3KPn//x+ed/r/9a//9/fvt7/3/5sPf//8///3nn+Hdc=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGridDropTarget" Collapsed="true">
+    <Position X="35" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAABAAAgAAAQAAAAAABAAAAAADAAAAAAASIAAAEAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridDropTarget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CInPlaceEdit" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAgAgAQAIAARAAIQgAAEAAYAIAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\InPlaceEdit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CJetMemDC" Collapsed="true">
+    <Position X="28" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAIkAgAAAAAgAAAAAAAAAAAAQAAAQAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\JetMemDC.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CTitleTip" Collapsed="true">
+    <Position X="28" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAABAAAgMEAAQQACAABAEAEAIgAQAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\TitleTip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="_Paint" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAIAIAAAAIAAAAAAAAgAAA=</HashCode>
+      <FileName>BMPPaint\GeometryDrawStack.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Geometry_Vtable" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryObject.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tag_VIEW" Collapsed="true">
+    <Position X="3.5" Y="10.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAEAAABAAAIAABAAACEAEABAAAIAAAAIAAAA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tag_REALRECT" Collapsed="true">
+    <Position X="3.5" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAgAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SChartCandlestickPoint" Collapsed="true">
+    <Position X="26.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAIAAAAgAAAAAIACgABAAQYAABAACAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartCandlestickSerie.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SChartGanttPoint" Collapsed="true">
+    <Position X="28" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAIICAgBAAQYAAAAAAAAAI=</HashCode>
+      <FileName>ChartCtrl\ChartGanttSerie.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SChartXYPoint" Collapsed="true">
+    <Position X="29.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIACAABAAQYgAAAQAAYAA=</HashCode>
+      <FileName>ChartCtrl\ChartXYSerie.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_GV_ITEM" Collapsed="true">
+    <Position X="14.5" Y="20.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkIAAAAIAAAAAAAAARQCAAAAAIAAACAQAAAAgAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCellBase.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tagNM_GRIDVIEW" Collapsed="true">
+    <Position X="19.5" Y="19.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tagGV_DISPINFO" Collapsed="true">
+    <Position X="3.5" Y="18.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tagGV_CACHEHINT" Collapsed="true">
+    <Position X="19.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="Paint_Struct" Collapsed="true">
+    <Position X="5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryDrawStack.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Geometry_Vtable_func" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BMPPaint\GeometryObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="VIEW" Collapsed="true">
+    <Position X="1.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PVIEW" Collapsed="true">
+    <Position X="3.5" Y="11.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="REALRECT" Collapsed="true">
+    <Position X="3.5" Y="12.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainTXTLeftView.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TChartString" Collapsed="true">
+    <Position X="31.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartString.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TChartStringStream" Collapsed="true">
+    <Position X="33.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\ChartString.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GV_ITEM" Collapsed="true">
+    <Position X="14.5" Y="21.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCellBase.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="NM_GRIDVIEW" Collapsed="true">
+    <Position X="19.5" Y="20.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GV_DISPINFO" Collapsed="true">
+    <Position X="3.5" Y="19.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GV_CACHEHINT" Collapsed="true">
+    <Position X="19.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GRID_ROW" Collapsed="true">
+    <Position X="26.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="GRIDCALLBACK" Collapsed="true">
+    <Position X="28" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PVIRTUALCOMPARE" Collapsed="true">
+    <Position X="29.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JetPrintGridCtrl\GridCtrl.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="GEOMETRY_TYPE" Collapsed="true">
+    <Position X="6" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAAAAACAIAAwAAAABAggAAAAAAAAAAUAAAAAAAA=</HashCode>
+      <FileName>BMPPaint\Geometry.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="VIEW_TYPE" Collapsed="true">
+    <Position X="29.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAI=</HashCode>
+      <FileName>MainFrm.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EGradientType" Collapsed="true">
+    <Position X="26.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAUA=</HashCode>
+      <FileName>ChartCtrl\ChartGradient.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PointsOrdering" Collapsed="true">
+    <Position X="28" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChartCtrl\PointsOrdering.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

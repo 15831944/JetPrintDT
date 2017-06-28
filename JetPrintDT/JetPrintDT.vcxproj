@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B3BFC3B7-7BCB-4D5C-A656-15EBEF1E2AB2}</ProjectGuid>
+    <RootNamespace>JetPrintDT</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\Device\OpenCV249\opencv;$(ProjectDir)\Device\OpenCV249\opencv2;$(ProjectDir)\Device\OpenCV249;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)\Device\OpenCV249\opencv2;$(ProjectDir)\Device\OpenCV249\opencv;$(ProjectDir)\Device\OpenCV249;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Device\CV24986\vc12\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+      <HeapReserveSize>0x1048576000</HeapReserveSize>
+      <StackReserveSize>
+      </StackReserveSize>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>/D “_WIN32_WINNT=0×0501” %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChartCtrl\ChartAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartAxisLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartBalloonLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartBarSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartCandlestickSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartCrossHairCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartCtrl.h" />
+    <ClInclude Include="ChartCtrl\ChartCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartDateTimeAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartDragLineCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartFont.h" />
+    <ClInclude Include="ChartCtrl\ChartGanttSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartGradient.h" />
+    <ClInclude Include="ChartCtrl\ChartGrid.h" />
+    <ClInclude Include="ChartCtrl\ChartLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartLegend.h" />
+    <ClInclude Include="ChartCtrl\ChartLineSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartLogarithmicAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartMouseListener.h" />
+    <ClInclude Include="ChartCtrl\ChartPointsArray.h" />
+    <ClInclude Include="ChartCtrl\ChartPointsSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartScrollBar.h" />
+    <ClInclude Include="ChartCtrl\ChartSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartSerieBase.h" />
+    <ClInclude Include="ChartCtrl\ChartSeriesMouseListener.h" />
+    <ClInclude Include="ChartCtrl\ChartStandardAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartString.h" />
+    <ClInclude Include="ChartCtrl\ChartSurfaceSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartTitle.h" />
+    <ClInclude Include="ChartCtrl\ChartXYSerie.h" />
+    <ClInclude Include="ChartCtrl\PointsOrdering.h" />
+    <ClInclude Include="CustomeControl\JetCustomeEdit.h" />
+    <ClInclude Include="CustomeControl\JetGroupBox.h" />
+    <ClInclude Include="CustomeControl\JetInitProgressCtrl.h" />
+    <ClInclude Include="CustomeControl\JetMemDC.h" />
+    <ClInclude Include="CustomeControl\JetPrintButton.h" />
+    <ClInclude Include="Database\MotionTable.h" />
+    <ClInclude Include="Database\ParamTable.h" />
+    <ClInclude Include="Database\sqlite3.h" />
+    <ClInclude Include="Database\SQLiteTbl.h" />
+    <ClInclude Include="DataStruct\JetPrintDTList.h" />
+    <ClInclude Include="DataStruct\tinyxml2.h" />
+    <ClInclude Include="Device\cvHead.h" />
+    <ClInclude Include="Device\cvShowVideo.h" />
+    <ClInclude Include="Device\CvvImage.h" />
+    <ClInclude Include="Device\DeviceADModule.h" />
+    <ClInclude Include="Device\DeviceADModulePort.h" />
+    <ClInclude Include="Device\DeviceCamera.h" />
+    <ClInclude Include="Device\DeviceHarvardPump.h" />
+    <ClInclude Include="Device\DeviceHarvardPumpPort.h" />
+    <ClInclude Include="Device\DeviceHeatModule.h" />
+    <ClInclude Include="Device\DeviceLocateLightPort.h" />
+    <ClInclude Include="Device\DeviceWatchLightPort.h" />
+    <ClInclude Include="Device\DeviceParker.h" />
+    <ClInclude Include="Device\DeviceVisa.h" />
+    <ClInclude Include="EXSplitterWnd.h" />
+    <ClInclude Include="JetBmp\JetBmpAnalysis.h" />
+    <ClInclude Include="JetDownloadFileThread.h" />
+    <ClInclude Include="JetDXF\DXFEvaluteNurbs.h" />
+    <ClInclude Include="JetDXF\DXFMath.h" />
+    <ClInclude Include="JetDXF\DXFNurbsKnot.h" />
+    <ClInclude Include="JetDXF\DXFPoint.h" />
+    <ClInclude Include="JetDXF\JetDxfBase.h" />
+    <ClInclude Include="JetDXF\JetDxfBaseView.h" />
+    <ClInclude Include="JetDXF\JetDxfBlock.h" />
+    <ClInclude Include="JetDXF\JetDxfColors.h" />
+    <ClInclude Include="JetDXF\JetDXFDef.h" />
+    <ClInclude Include="JetDXF\JetDxfDimView.h" />
+    <ClInclude Include="JetDXF\JetDxfDrawView.h" />
+    <ClInclude Include="JetDXF\JetDxfEntities.h" />
+    <ClInclude Include="JetDXF\JetDxfNurbs.h" />
+    <ClInclude Include="JetDXF\JetDxfRead.h" />
+    <ClInclude Include="JetDXF\JetDxfTable.h" />
+    <ClInclude Include="JetDXF\JetDxfTextView.h" />
+    <ClInclude Include="JetDXF\JetDxfView.h" />
+    <ClInclude Include="JetDXF\JetDxfWrite.h" />
+    <ClInclude Include="JetDXF\OpenList.h" />
+    <ClInclude Include="JetDXF\OpenSpline.h" />
+    <ClInclude Include="JetDXF\SimpleList.h" />
+    <ClInclude Include="JetPanelWnd.h" />
+    <ClInclude Include="JetPreviewWnd.h" />
+    <ClInclude Include="JetPrintDT.h" />
+    <ClInclude Include="JetPrintDTDoc.h" />
+    <ClInclude Include="JetPrintDTFrame.h" />
+    <ClInclude Include="JetPrintFileDownloadProgressDlg.h" />
+    <ClInclude Include="JetPrintGridCtrl\CellRange.h" />
+    <ClInclude Include="JetPrintGridCtrl\GridCell.h" />
+    <ClInclude Include="JetPrintGridCtrl\GridCellBase.h" />
+    <ClInclude Include="JetPrintGridCtrl\GridCtrl.h" />
+    <ClInclude Include="JetPrintGridCtrl\GridDropTarget.h" />
+    <ClInclude Include="JetPrintGridCtrl\InPlaceEdit.h" />
+    <ClInclude Include="JetPrintGridCtrl\JetMemDC.h" />
+    <ClInclude Include="JetPrintGridCtrl\TitleTip.h" />
+    <ClInclude Include="JetPrintPlacodeModifyDlg.h" />
+    <ClInclude Include="JetPrintWaittingDlg.h" />
+    <ClInclude Include="MainDXFView.h" />
+    <ClInclude Include="PrintFileOperateView.h" />
+    <ClInclude Include="PrintMatchView.h" />
+    <ClInclude Include="PrintMotionControlView.h" />
+    <ClInclude Include="PrintParamSetView.h" />
+    <ClInclude Include="PrintCameraView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="PrintPrintControlView.h" />
+    <ClInclude Include="ResizableFormView.h" />
+    <ClInclude Include="ResizableLayout.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SingleTon\CameraSharedBuffer.h" />
+    <ClInclude Include="SingleTon\CPUInfoHeader.h" />
+    <ClInclude Include="SingleTon\CPUInfoInstance.h" />
+    <ClInclude Include="SingleTon\CustomeDrawSingleton.h" />
+    <ClInclude Include="SingleTon\HostInstance.h" />
+    <ClInclude Include="SingleTon\ParamInitSingleton.h" />
+    <ClInclude Include="SingleTon\SingletonBase.h" />
+    <ClInclude Include="SingleTon\SingletonTemplate.h" />
+    <ClInclude Include="SkinH.h" />
+    <ClInclude Include="SplashWindow.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="WaitMessageThread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChartCtrl\ChartAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartAxisLabel.cpp" />
+    <ClCompile Include="ChartCtrl\ChartBarSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCandlestickSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCrossHairCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCtrl.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartDateTimeAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartDragLineCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartFont.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGanttSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGradient.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGrid.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLegend.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLineSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLogarithmicAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartPointsSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartScrollBar.cpp" />
+    <ClCompile Include="ChartCtrl\ChartSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartStandardAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartSurfaceSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartTitle.cpp" />
+    <ClCompile Include="ChartCtrl\ChartXYSerie.cpp" />
+    <ClCompile Include="CustomeControl\JetCustomeEdit.cpp" />
+    <ClCompile Include="CustomeControl\JetGroupBox.cpp" />
+    <ClCompile Include="CustomeControl\JetInitProgressCtrl.cpp" />
+    <ClCompile Include="CustomeControl\JetPrintButton.cpp" />
+    <ClCompile Include="Database\MotionTable.cpp" />
+    <ClCompile Include="Database\ParamTable.cpp" />
+    <ClCompile Include="Database\sqlite3.c" />
+    <ClCompile Include="Database\SQLiteTbl.cpp" />
+    <ClCompile Include="DataStruct\tinyxml2.cpp" />
+    <ClCompile Include="Device\cvShowVideo.cpp" />
+    <ClCompile Include="Device\CvvImage.cpp" />
+    <ClCompile Include="Device\DeviceADModule.cpp" />
+    <ClCompile Include="Device\DeviceADModulePort.cpp" />
+    <ClCompile Include="Device\DeviceCamera.cpp" />
+    <ClCompile Include="Device\DeviceHarvardPump.cpp" />
+    <ClCompile Include="Device\DeviceHarvardPumpPort.cpp" />
+    <ClCompile Include="Device\DeviceHeatModule.cpp" />
+    <ClCompile Include="Device\DeviceLocateLightPort.cpp" />
+    <ClCompile Include="Device\DeviceWatchLightPort.cpp" />
+    <ClCompile Include="Device\DeviceParker.cpp" />
+    <ClCompile Include="Device\DeviceVisa.cpp" />
+    <ClCompile Include="EXSplitterWnd.cpp" />
+    <ClCompile Include="JetBmp\JetBmpAnalysis.cpp" />
+    <ClCompile Include="JetDownloadFileThread.cpp" />
+    <ClCompile Include="JetDXF\DXFError.cpp" />
+    <ClCompile Include="JetDXF\DXFEvaluteNurbs.cpp" />
+    <ClCompile Include="JetDXF\DXFMath.cpp" />
+    <ClCompile Include="JetDXF\DXFNurbsKnot.cpp" />
+    <ClCompile Include="JetDXF\DXFPoint.cpp" />
+    <ClCompile Include="JetDXF\JetDxfBase.cpp" />
+    <ClCompile Include="JetDXF\JetDxfBaseView.cpp" />
+    <ClCompile Include="JetDXF\JetDxfBlock.cpp" />
+    <ClCompile Include="JetDXF\JetDxfDimView.cpp" />
+    <ClCompile Include="JetDXF\JetDxfDrawView.cpp" />
+    <ClCompile Include="JetDXF\JetDxfEntities.cpp" />
+    <ClCompile Include="JetDXF\JetDxfNurbs.cpp" />
+    <ClCompile Include="JetDXF\JetDxfRead.cpp" />
+    <ClCompile Include="JetDXF\JetDxfTable.cpp" />
+    <ClCompile Include="JetDXF\JetDxfTextView.cpp" />
+    <ClCompile Include="JetDXF\JetDxfView.cpp" />
+    <ClCompile Include="JetDXF\JetDxfWrite.cpp" />
+    <ClCompile Include="JetDXF\OpenSpline.cpp" />
+    <ClCompile Include="JetPanelWnd.cpp" />
+    <ClCompile Include="JetPreviewWnd.cpp" />
+    <ClCompile Include="JetPrintDT.cpp" />
+    <ClCompile Include="JetPrintDTDoc.cpp" />
+    <ClCompile Include="JetPrintDTFrame.cpp" />
+    <ClCompile Include="JetPrintFileDownloadProgressDlg.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\GridCell.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\GridCellBase.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\GridCtrl.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\GridDropTarget.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\InPlaceEdit.cpp" />
+    <ClCompile Include="JetPrintGridCtrl\TitleTip.cpp" />
+    <ClCompile Include="JetPrintPlacodeModifyDlg.cpp" />
+    <ClCompile Include="JetPrintWaittingDlg.cpp" />
+    <ClCompile Include="MainDXFView.cpp" />
+    <ClCompile Include="PrintFileOperateView.cpp" />
+    <ClCompile Include="PrintMatchView.cpp" />
+    <ClCompile Include="PrintMotionControlView.cpp" />
+    <ClCompile Include="PrintParamSetView.cpp" />
+    <ClCompile Include="PrintCameraView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="PrintPrintControlView.cpp" />
+    <ClCompile Include="ResizableFormView.cpp" />
+    <ClCompile Include="ResizableLayout.cpp" />
+    <ClCompile Include="SingleTon\CPUInfoInstance.cpp" />
+    <ClCompile Include="SingleTon\HostInstance.cpp" />
+    <ClCompile Include="SingleTon\ParamInitSingleton.cpp" />
+    <ClCompile Include="SingleTon\SingletonBase.cpp" />
+    <ClCompile Include="SplashWindow.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WaitMessageThread.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="JetPrintDT.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\BMP.bmp" />
+    <Image Include="res\buttons.bmp" />
+    <Image Include="res\DXF.bmp" />
+    <Image Include="res\DXF_BIG.bmp" />
+    <Image Include="res\DXF_SMALL.bmp" />
+    <Image Include="res\filelarge.bmp" />
+    <Image Include="res\filesmall.bmp" />
+    <Image Include="res\info.bmp" />
+    <Image Include="res\JetPrintDT.ico" />
+    <Image Include="res\JetPrintDTDoc.ico" />
+    <Image Include="res\main.bmp" />
+    <Image Include="res\nav_large.bmp" />
+    <Image Include="res\nav_large_hc.bmp" />
+    <Image Include="res\pages.bmp" />
+    <Image Include="res\pages_hc.bmp" />
+    <Image Include="res\pages_small.bmp" />
+    <Image Include="res\pages_small_hc.bmp" />
+    <Image Include="res\Paint.bmp" />
+    <Image Include="res\PRINT.bmp" />
+    <Image Include="res\PrintToolBar.bmp" />
+    <Image Include="res\Splash.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="res\TXT.bmp" />
+    <Image Include="res\TxtPaint.bmp" />
+    <Image Include="res\writelarge.bmp" />
+    <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChartCtrl\ChartBalloonLabel.inl" />
+    <None Include="ChartCtrl\ChartLabel.inl" />
+    <None Include="ChartCtrl\ChartPointsArray.inl" />
+    <None Include="ChartCtrl\ChartSerieBase.inl" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\CircleCursor.cur" />
+    <None Include="res\EllipseCursor.cur" />
+    <None Include="res\JetPrintDT.rc2" />
+    <None Include="res\LineCursor.cur" />
+    <None Include="res\RectCursor.cur" />
+    <None Include="res\ribbon.mfcribbon-ms" />
+    <None Include="res\SquareCursor.cur" />
+    <None Include="res\TriangleCursor.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="JetPrintDT.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

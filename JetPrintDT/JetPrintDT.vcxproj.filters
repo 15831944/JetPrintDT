@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ChartCtrl">
+      <UniqueIdentifier>{20af13af-24b8-42e1-96a9-fd235f410455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GridCtrl">
+      <UniqueIdentifier>{7ddc37c2-eb36-4d12-a8f5-55e65e408500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Device">
+      <UniqueIdentifier>{6ffcadb5-b6ab-4e32-b598-e92e56f89ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStruct">
+      <UniqueIdentifier>{2ffc6709-4708-46dc-b1c6-c68df0a3b9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SingleTon">
+      <UniqueIdentifier>{fb2424c2-2438-4777-b647-c8665a4ff051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataBase">
+      <UniqueIdentifier>{1d223757-9cbe-4dfe-bf43-b96592981fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JetBMP">
+      <UniqueIdentifier>{5262985f-dc6f-4ace-8807-1f279647f7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JetDXF">
+      <UniqueIdentifier>{bd631f27-883a-4ee0-a9b4-901ac7dbba0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CustomeControl">
+      <UniqueIdentifier>{995970b4-efc4-4106-9d94-5a75a22a6cc7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="JetPrintDT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintDTDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintDTFrame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintParamSetView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintCameraView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintMotionControlView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EXSplitterWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableFormView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLayout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartAxis.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartAxisLabel.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartBalloonLabel.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartBarSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCandlestickSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCrossHairCursor.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCtrl.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCursor.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartDateTimeAxis.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartDragLineCursor.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartFont.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGanttSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGradient.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGrid.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLabel.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLegend.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLineSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLogarithmicAxis.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartMouseListener.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartPointsArray.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartPointsSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartScrollBar.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSerieBase.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSeriesMouseListener.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartStandardAxis.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartString.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSurfaceSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartTitle.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartXYSerie.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\PointsOrdering.h">
+      <Filter>ChartCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\CellRange.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\GridCell.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\GridCellBase.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\GridCtrl.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\GridDropTarget.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\InPlaceEdit.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\JetMemDC.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintGridCtrl\TitleTip.h">
+      <Filter>GridCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPanelWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintFileOperateView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintPrintControlView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceVisa.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStruct\JetPrintDTList.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceADModule.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceADModulePort.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceHarvardPump.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceHarvardPumpPort.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\CustomeDrawSingleton.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\SingletonBase.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\SingletonTemplate.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\ParamInitSingleton.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\HostInstance.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStruct\tinyxml2.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\MotionTable.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\ParamTable.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\sqlite3.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Database\SQLiteTbl.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceParker.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\CPUInfoHeader.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\CPUInfoInstance.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\cvHead.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\cvShowVideo.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\CvvImage.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDXFView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTon\CameraSharedBuffer.h">
+      <Filter>SingleTon</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceCamera.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="JetBmp\JetBmpAnalysis.h">
+      <Filter>JetBMP</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\DXFEvaluteNurbs.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\DXFMath.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\DXFNurbsKnot.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\DXFPoint.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfBase.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfBaseView.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfBlock.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfColors.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDXFDef.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfDimView.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfDrawView.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfEntities.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfNurbs.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfRead.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfTable.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfTextView.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfView.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\JetDxfWrite.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\OpenList.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\OpenSpline.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDXF\SimpleList.h">
+      <Filter>JetDXF</Filter>
+    </ClInclude>
+    <ClInclude Include="JetDownloadFileThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintFileDownloadProgressDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomeControl\JetCustomeEdit.h">
+      <Filter>CustomeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomeControl\JetGroupBox.h">
+      <Filter>CustomeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomeControl\JetInitProgressCtrl.h">
+      <Filter>CustomeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomeControl\JetPrintButton.h">
+      <Filter>CustomeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomeControl\JetMemDC.h">
+      <Filter>CustomeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintWaittingDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitMessageThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPrintPlacodeModifyDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceWatchLightPort.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceLocateLightPort.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\DeviceHeatModule.h">
+      <Filter>Device</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintMatchView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPreviewWnd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinH.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JetPrintDT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintDTDoc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintDTFrame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintParamSetView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintCameraView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintMotionControlView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EXSplitterWnd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableFormView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLayout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartAxis.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartAxisLabel.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartBarSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCandlestickSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCrossHairCursor.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCtrl.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCursor.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartDateTimeAxis.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartDragLineCursor.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartFont.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGanttSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGradient.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGrid.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLegend.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLineSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLogarithmicAxis.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartPointsSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartScrollBar.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartStandardAxis.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartSurfaceSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartTitle.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartXYSerie.cpp">
+      <Filter>ChartCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\GridCell.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\GridCellBase.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\GridCtrl.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\GridDropTarget.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\InPlaceEdit.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintGridCtrl\TitleTip.cpp">
+      <Filter>GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPanelWnd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintFileOperateView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintPrintControlView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceVisa.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceADModule.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceADModulePort.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceHarvardPump.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceHarvardPumpPort.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleTon\SingletonBase.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleTon\HostInstance.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStruct\tinyxml2.cpp">
+      <Filter>DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\MotionTable.cpp">
+      <Filter>DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\ParamTable.cpp">
+      <Filter>DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\sqlite3.c">
+      <Filter>DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Database\SQLiteTbl.cpp">
+      <Filter>DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceParker.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleTon\ParamInitSingleton.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleTon\CPUInfoInstance.cpp">
+      <Filter>SingleTon</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\cvShowVideo.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\CvvImage.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDXFView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceCamera.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="JetBmp\JetBmpAnalysis.cpp">
+      <Filter>JetBMP</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\DXFError.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\DXFEvaluteNurbs.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\DXFMath.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\DXFNurbsKnot.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\DXFPoint.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfBase.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfBaseView.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfBlock.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfDimView.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfDrawView.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfEntities.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfNurbs.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfRead.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfTable.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfTextView.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfView.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\JetDxfWrite.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDXF\OpenSpline.cpp">
+      <Filter>JetDXF</Filter>
+    </ClCompile>
+    <ClCompile Include="JetDownloadFileThread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintFileDownloadProgressDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomeControl\JetCustomeEdit.cpp">
+      <Filter>CustomeControl</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomeControl\JetGroupBox.cpp">
+      <Filter>CustomeControl</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomeControl\JetInitProgressCtrl.cpp">
+      <Filter>CustomeControl</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomeControl\JetPrintButton.cpp">
+      <Filter>CustomeControl</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintWaittingDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitMessageThread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPrintPlacodeModifyDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceWatchLightPort.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceLocateLightPort.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\DeviceHeatModule.cpp">
+      <Filter>Device</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintMatchView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPreviewWnd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="JetPrintDT.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\nav_large.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\nav_large_hc.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\pages.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\pages_hc.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\pages_small.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\pages_small_hc.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\info.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\buttons.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\filelarge.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\filesmall.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\main.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\writelarge.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\writesmall.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\JetPrintDTDoc.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\JetPrintDT.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\BMP.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\DXF.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\PRINT.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\TXT.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Paint.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\PrintToolBar.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\TxtPaint.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Splash.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\DXF_BIG.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\DXF_SMALL.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ribbon.mfcribbon-ms">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\JetPrintDT.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\CircleCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\EllipseCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\LineCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\RectCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\SquareCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\TriangleCursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ChartCtrl\ChartBalloonLabel.inl">
+      <Filter>ChartCtrl</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartLabel.inl">
+      <Filter>ChartCtrl</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartPointsArray.inl">
+      <Filter>ChartCtrl</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartSerieBase.inl">
+      <Filter>ChartCtrl</Filter>
+    </None>
+  </ItemGroup>
+</Project>
