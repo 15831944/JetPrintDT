@@ -480,8 +480,8 @@ void CPrintFileOperateView::MatchPrintDecodeFile(double dbXOrignPos, double dbYO
 		double xOffset = (double)(right + left) / 2.0;
 		double yOffset = (double)(top + bottom) / 2.0;
 
-		xOffset = xOffset+xWidth - dbXJet;
-		yOffset = yOffset+yHeight - dbYJet;
+		xOffset = xOffset+xWidth + dbXJet - dbXOrignPos;
+		yOffset = yOffset+yHeight + dbYJet - dbYOrignPos;
 
 		m_JetDxfWriteProg.InitJetWriteOffset(xOffset, yOffset);
 		m_JetDxfWriteProg.InitJetWriteView(m_JetDrawView.m_Drawing.m_pJetDxfDimView);

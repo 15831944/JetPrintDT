@@ -22,10 +22,25 @@ CPrintMatchView::CPrintMatchView()
 	m_dbYLocatePos = 0.0;
 	m_dbXJetPos = 0.0;
 	m_dbYJetPos = 0.0;
+	m_dbCurrentXPos = 0.0;
+	m_dbCurrentYPos = 0.0;
+	m_benablerunning = false;
+	m_benablesumulate = false;
+	m_dbjogspeed = 0.01;
+	m_hMotorSimulateEvent = INVALID_HANDLE_VALUE;
+	m_pSimulateThread = NULL;
 }
 
 CPrintMatchView::~CPrintMatchView()
 {
+#if _DEBUGE_MATCH
+	m_benablesumulate = false;
+	SetEvent(m_hMotorSimulateEvent);
+
+	WaitForSingleObject(m_pSimulateThread->m_hThread, 5000);
+	CloseHandle(m_pSimulateThread->m_hThread);
+	CloseHandle(m_hMotorSimulateEvent);
+#endif
 }
 
 void CPrintMatchView::DoDataExchange(CDataExchange* pDX)
@@ -132,6 +147,20 @@ BOOL CPrintMatchView::OnInitDialog()
 	indicatorPos.y = nYpos;
 	m_PreviewWnd.updateprintorignpos(indicatorPos);
 
+#if _DEBUGE_MATCH
+	m_benablesumulate = true;
+	m_hMotorSimulateEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+	m_pSimulateThread = AfxBeginThread(SimulateMotorMove, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
+	if (NULL == m_pSimulateThread)
+	{
+		AfxMessageBox(_T("创建模拟线程失败！"));
+	}
+
+	m_pSimulateThread->m_bAutoDelete = false;
+	m_pSimulateThread->ResumeThread();
+	SetEvent(m_hMotorSimulateEvent);
+#endif
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常:  OCX 属性页应返回 FALSE
 }
@@ -143,6 +172,9 @@ void CPrintMatchView::UpdatePosition(double dbXPos, double dbYPos){
 	GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_LOCATECAMERA_TOCENTER_NEWDIST_XPOS_EDIT)->SetWindowText(editText);
 	editText.Format(_T("%.4f"), dbYPos);
 	GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_LOCATECAMERA_TOCENTER_NEWDIST_YPOS_EDIT)->SetWindowText(editText);
+
+	m_dbCurrentXPos = dbXPos;
+	m_dbCurrentYPos = dbYPos;
 }
 
 void CPrintMatchView::OnBnClickedJetprintdtPrintMatchLocatecameraTocenterSetdistButton()
@@ -226,6 +258,10 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchJetTocenterSetdistButton()
 void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignYsteppositiveButton()
 {
 	// TODO:  在此添加控件通知处理程序代码
+#if _DEBUGE_MATCH
+	m_dbCurrentYPos += m_dbStepLenth;
+	UpdatePosition(m_dbCurrentXPos,m_dbCurrentYPos);
+#else
 	CMainFrame *pMainWnd = (CMainFrame*)(AfxGetApp()->m_pMainWnd);
 	if (pMainWnd){
 		CPrintMotionControlView *pView = (CPrintMotionControlView *)pMainWnd->m_SplitInfo[0].m_wndSplitter.m_views[LEFT_SIDE][MOTIONCONTROL_VIEW];
@@ -233,12 +269,17 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignYsteppositiveButt
 			pView->OnBnClickedJetprintdtMotioncontrolMotionStepforwardButton();
 		}
 	}
+#endif
 }
 
 
 void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignXstepnegetiveButton()
 {
 	// TODO:  在此添加控件通知处理程序代码
+#if _DEBUGE_MATCH
+	m_dbCurrentXPos -= m_dbStepLenth;
+	UpdatePosition(m_dbCurrentXPos,m_dbCurrentYPos);
+#else
 	CMainFrame *pMainWnd = (CMainFrame*)(AfxGetApp()->m_pMainWnd);
 	if (pMainWnd){
 		CPrintMotionControlView *pView = (CPrintMotionControlView *)pMainWnd->m_SplitInfo[0].m_wndSplitter.m_views[LEFT_SIDE][MOTIONCONTROL_VIEW];
@@ -246,12 +287,17 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignXstepnegetiveButt
 			pView->OnBnClickedJetprintdtMotioncontrolMotionStepleftButton();
 		}
 	}
+#endif
 }
 
 
 void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignYstepnegetiveButton()
 {
 	// TODO:  在此添加控件通知处理程序代码
+#if _DEBUGE_MATCH
+	m_dbCurrentYPos -= m_dbStepLenth;
+	UpdatePosition(m_dbCurrentXPos,m_dbCurrentYPos);
+#else
 	CMainFrame *pMainWnd = (CMainFrame*)(AfxGetApp()->m_pMainWnd);
 	if (pMainWnd){
 		CPrintMotionControlView *pView = (CPrintMotionControlView *)pMainWnd->m_SplitInfo[0].m_wndSplitter.m_views[LEFT_SIDE][MOTIONCONTROL_VIEW];
@@ -259,12 +305,17 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignYstepnegetiveButt
 			pView->OnBnClickedJetprintdtMotioncontrolMotionStepbackwardButton();
 		}
 	}
+#endif
 }
 
 
 void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignXsteppositiveButton()
 {
 	// TODO:  在此添加控件通知处理程序代码
+#if _DEBUGE_MATCH
+	m_dbCurrentXPos += m_dbStepLenth;
+	UpdatePosition(m_dbCurrentXPos,m_dbCurrentYPos);
+#else
 	CMainFrame *pMainWnd = (CMainFrame*)(AfxGetApp()->m_pMainWnd);
 	if (pMainWnd){
 		CPrintMotionControlView *pView = (CPrintMotionControlView *)pMainWnd->m_SplitInfo[0].m_wndSplitter.m_views[LEFT_SIDE][MOTIONCONTROL_VIEW];
@@ -272,6 +323,7 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignXsteppositiveButt
 			pView->OnBnClickedJetprintdtMotioncontrolMotionSteprightButton();
 		}
 	}
+#endif
 }
 
 
@@ -401,6 +453,11 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 	{
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_XPOSITIVE_BUTTON)->m_hWnd)
 		{
+#if _DEBUGE_MATCH
+			m_eMoveType = X_JOG_POSITIVE;
+			m_benablerunning = true;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 			//X Jog Positive
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
@@ -412,6 +469,11 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_YPOSITIVE_BUTTON)->m_hWnd)
 		{
 			//Y Jog Positive
+#if _DEBUGE_MATCH
+			m_eMoveType = Y_JOG_POSITIVE;
+			m_benablerunning = true;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			pParker->JetParkerYJogPlus();
@@ -422,6 +484,11 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_XNEGETIVE_BUTTON)->m_hWnd)
 		{
 			//X Jog Negative
+#if _DEBUGE_MATCH
+			m_eMoveType = X_JOG_NEGATIVE;
+			m_benablerunning = true;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			pParker->JetParkerXJogMinus();
@@ -432,6 +499,11 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_YNEGETIVE_BUTTON)->m_hWnd)
 		{
 			//Y Jog Negative
+#if _DEBUGE_MATCH
+			m_eMoveType = Y_JOG_NEGATIVE;
+			m_benablerunning = true;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			pParker->JetParkerYJogMinum();
@@ -448,6 +520,10 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_XPOSITIVE_BUTTON)->m_hWnd)
 		{
 			//X Stop Jog Positive
+#if _DEBUGE_MATCH 
+			m_benablerunning = false;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			if (pParker->JetParkerIsXJogPlus())
@@ -461,6 +537,10 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_YPOSITIVE_BUTTON)->m_hWnd)
 		{
 			//Y Stop Jog Positive
+#if _DEBUGE_MATCH 
+			m_benablerunning = false;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			if (pParker->JetParkerIsYJogPlus())
@@ -474,6 +554,10 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_XNEGETIVE_BUTTON)->m_hWnd)
 		{
 			//X Stop Jog Negative
+#if _DEBUGE_MATCH 
+			m_benablerunning = false;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			if (pParker->JetParkerIsXJogMinus())
@@ -487,6 +571,10 @@ BOOL CPrintMatchView::PreTranslateMessage(MSG* pMsg)
 		if (pMsg->hwnd == GetDlgItem(IDC_JETPRINTDT_PRINT_MATCH_YNEGETIVE_BUTTON)->m_hWnd)
 		{
 			//Y Stop Jog Negative
+#if _DEBUGE_MATCH 
+			m_benablerunning = false;
+			SetEvent(m_hMotorSimulateEvent);
+#endif
 #if _DEBUGE_PARKER
 			CDeviceParker *pParker = CDeviceParker::Instance();
 			if (pParker->JetParkerIsYJogMinus())
@@ -513,4 +601,45 @@ void CPrintMatchView::OnBnClickedJetprintdtPrintMatchPrintorignSetDecodefileButt
 			pView->MatchPrintDecodeFile(m_dbXPrintOrignPos, m_dbYPrintOrignPos,m_dbXJetPos,m_dbYJetPos);
 		}
 	}
+}
+
+
+UINT CPrintMatchView::SimulateMotorMove(LPVOID pVoid){
+	CPrintMatchView *pParam = (CPrintMatchView*)(pVoid);
+
+	while (pParam->m_benablesumulate){
+		WaitForSingleObject(pParam->m_hMotorSimulateEvent, INFINITE);
+		ResetEvent(pParam->m_hMotorSimulateEvent);
+
+		if (false == pParam->m_benablesumulate)
+			break;
+		bool bMotorInNormalState = true;
+		while (bMotorInNormalState){
+			if (pParam->m_benablerunning){
+				switch (pParam->m_eMoveType){
+				case X_JOG_POSITIVE:
+					pParam->m_dbCurrentXPos += pParam->m_dbjogspeed;
+					pParam->UpdatePosition(pParam->m_dbCurrentXPos, pParam->m_dbCurrentYPos);
+					break;
+
+				case X_JOG_NEGATIVE:
+					pParam->m_dbCurrentXPos -= pParam->m_dbjogspeed;
+					pParam->UpdatePosition(pParam->m_dbCurrentXPos, pParam->m_dbCurrentYPos);
+					break;
+
+				case Y_JOG_POSITIVE:
+					pParam->m_dbCurrentYPos += pParam->m_dbjogspeed;
+					pParam->UpdatePosition(pParam->m_dbCurrentXPos, pParam->m_dbCurrentYPos);
+					break;
+
+				case Y_JOG_NEGATIVE:
+					pParam->m_dbCurrentYPos -= pParam->m_dbjogspeed;
+					pParam->UpdatePosition(pParam->m_dbCurrentXPos, pParam->m_dbCurrentYPos);
+					break;
+				}
+			}
+		}
+	}
+
+	return 0;
 }

@@ -310,7 +310,6 @@
     <ClInclude Include="SingleTon\ParamInitSingleton.h" />
     <ClInclude Include="SingleTon\SingletonBase.h" />
     <ClInclude Include="SingleTon\SingletonTemplate.h" />
-    <ClInclude Include="SkinH.h" />
     <ClInclude Include="SplashWindow.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

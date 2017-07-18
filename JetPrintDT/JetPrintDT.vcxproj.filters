@@ -399,9 +399,6 @@
     <ClInclude Include="JetPreviewWnd.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SkinH.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JetPrintDT.cpp">

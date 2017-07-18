@@ -27,6 +27,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
+	typedef enum MOVE_TYPE{X_JOG_POSITIVE,X_JOG_NEGATIVE,Y_JOG_POSITIVE,Y_JOG_NEGATIVE};
 	double m_dbXPrintOrignPos;
 	double m_dbYPrintOrignPos;
 	double m_dbXJetPos;
@@ -35,11 +36,19 @@ public:
 	double m_dbYLocatePos;
 	double m_dbStepLenth;
 
+	double m_dbCurrentXPos;
+	double m_dbCurrentYPos;
+	bool m_benablesumulate; //for debuge purpose
+	bool m_benablerunning;  //for debuge purpose
+	double m_dbjogspeed;	//for debuge purpose
+	MOVE_TYPE m_eMoveType;
 	CJetPreviewWnd m_PreviewWnd;
+	HANDLE m_hMotorSimulateEvent;
+	CWinThread *m_pSimulateThread;
 public:
 	virtual BOOL OnInitDialog();
 
-
+	static UINT SimulateMotorMove(LPVOID pVoid);
 public:
 	void UpdatePosition(double dbXPos,double dbYPos);
 	bool InitSimulatePanel();

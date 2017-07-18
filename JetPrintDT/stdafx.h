@@ -45,9 +45,10 @@
 #include <afxcontrolbars.h>     // 功能区和控件条的 MFC 支持
 
 #define PI	3.1415926535
-#define _DEBUGE_MODE 0
-#define _DEBUGE_VISA 0
-#define _DEBUGE_PARKER 0
+#define _DEBUGE_MODE 1		//in release mode this should be 1
+#define _DEBUGE_VISA 1		//in release mode this should be 1
+#define _DEBUGE_PARKER 1	//in release mode this should be 1
+#define _DEBUGE_MATCH  0    //in release mode this should be 0
 
 #define VISA_OUTPUT    32
 #define TIMER_UPDATE_IMAGE 0
@@ -71,8 +72,6 @@
 #include   "GdiPlus.h" 
 using   namespace   Gdiplus;
 #pragma   comment(lib,   "gdiplus.lib")
-#include "SkinH.h"
-#pragma comment(lib,"SkinH.lib")
 
 #ifdef _UNICODE
 #if defined _M_IX86
