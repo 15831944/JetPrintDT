@@ -475,7 +475,7 @@ void CPrintFileOperateView::MatchPrintDecodeFile(double dbXOrignPos, double dbYO
 		top = m_JetDrawView.m_Drawing.borderRect.top;
 		bottom = m_JetDrawView.m_Drawing.borderRect.bottom;
 
-		double xWidth = abs((double)(right - left) / 2.0);
+		double xWidth = -abs((double)(right - left) / 2.0);
 		double yHeight = -abs((double)(top - bottom) / 2.0);
 		double xOffset = (double)(right + left) / 2.0;
 		double yOffset = (double)(top + bottom) / 2.0;

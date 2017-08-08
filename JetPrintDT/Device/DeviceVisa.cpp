@@ -525,6 +525,8 @@ void CDeviceVisa::SetDCFunction(long offset/*=0*/)
 //设置波形为方波
 void CDeviceVisa::SetSquareFunction()
 {
+	//clear
+	WriteLine(vi, "*CLS\n");
 #if _DEBUGE_VISA
 	//方波波形
 	viPrintf(vi, ":SOURce:FUNCtion %s\n", "SQUare");
@@ -541,8 +543,10 @@ void CDeviceVisa::SetSquareFunction()
 	viPrintf(vi, ":SOURce:BURSt:MODE GATed\n");
 	viPrintf(vi, ":SOURce:BURSt:STATe %@1d\n", 1);
 
-	//上升沿触发
+	//External Trigger,Slope Positive Trigger
+	viPrintf(vi, ":TRIGger:SOURce EXTernal\n");
 	viPrintf(vi, ":TRIGger:SLOPe POSitive\n");
+	
 #endif
 }
 
