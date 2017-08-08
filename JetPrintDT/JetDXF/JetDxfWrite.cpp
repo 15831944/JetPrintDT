@@ -245,11 +245,16 @@ BOOL CJetDxfWrite::WriteSpline(PENTSPLINE pEntSpline,double xOffset,double yOffs
 		pControlPoint[i].y = pEntSpline->pControlPoint[i].y;
 		pControlPoint[i].z = 0.0;
 
-		pControlPoint[i].x -= db_XOffset;
-		pControlPoint[i].y -= db_YOffSet;
-
 		pControlPoint[i].x *= db_XZoomFactor;
 		pControlPoint[i].y *= db_YZoomFactor;
+
+		pControlPoint[i].x *= -1;
+		pControlPoint[i].y *= -1;
+
+		pControlPoint[i].x += db_XOffset;
+		pControlPoint[i].y += db_YOffSet;
+
+		
 
 	}
 
@@ -375,11 +380,13 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 	{
 		double dbXtemp = WriteCaculateXPos(pEntLWPolyline->pVertexPoint[i].x,pEntLWPolyline->pVertexPoint[i].y,xOffset,yOffset,xScale,yScale,rotation) ;
 		double dbYtemp = WriteCaculateYPos(pEntLWPolyline->pVertexPoint[i].x,pEntLWPolyline->pVertexPoint[i].y,xOffset,yOffset,xScale,yScale,rotation);
-		pVertex[i].x = dbXtemp  - db_XOffset;
-		pVertex[i].y = dbYtemp  - db_YOffSet;
+		dbXtemp *= db_XZoomFactor;
+		dbYtemp *= db_YZoomFactor;
+		dbXtemp *= -1;
+		dbYtemp *= -1;
 
-		pVertex[i].x *= db_XZoomFactor;
-		pVertex[i].y *= db_YZoomFactor;
+		pVertex[i].x = dbXtemp  + db_XOffset;
+		pVertex[i].y = dbYtemp  + db_YOffSet;
 	}
 
 	CString strWrite = _T("");
@@ -391,7 +398,7 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 		return bResult;
 	}
 
-	strWrite.Format(_T("X %f Y %f\n"), -pVertex[nVertexIndex].x, -pVertex[nVertexIndex].y);
+	strWrite.Format(_T("X %f Y %f\n"), pVertex[nVertexIndex].x, pVertex[nVertexIndex].y);
 	bResult = WriteParamString(strWrite);
 	if (FALSE == bResult)
 	{
@@ -425,7 +432,7 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 	do 
 	{
 
-		strWrite.Format(_T("X %f Y %f\n"), -pVertex[nVertexIndex].x, -pVertex[nVertexIndex].y);
+		strWrite.Format(_T("X %f Y %f\n"), pVertex[nVertexIndex].x, pVertex[nVertexIndex].y);
 		bResult = WriteParamString(strWrite);
 		if (FALSE == bResult)
 		{
@@ -437,7 +444,7 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 	//如果是关闭的
 	if(bClosed)
 	{
-		strWrite.Format(_T("X %f Y %f\n"), -pVertex[0].x, -pVertex[0].y);
+		strWrite.Format(_T("X %f Y %f\n"), pVertex[0].x, pVertex[0].y);
 		bResult = WriteParamString(strWrite);
 		if (FALSE == bResult)
 		{
@@ -448,7 +455,7 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 	//在置位之前，移动至最后一个点
 	if(bClosed)
 	{
-		strWrite.Format(_T("X %fY %f\n"), -pVertex[0].x, -pVertex[0].y);
+		strWrite.Format(_T("X %fY %f\n"), pVertex[0].x, pVertex[0].y);
 		bResult = WriteParamString(strWrite);
 		if (FALSE == bResult)
 		{
@@ -457,7 +464,7 @@ BOOL CJetDxfWrite::WriteLWPolyline(PENTLWPOLYLINE pEntLWPolyline,double xOffset,
 	}
 	else
 	{
-		strWrite.Format(_T("X %f Y %f\n"), -pVertex[nVertexIndex-1].x, -pVertex[nVertexIndex-1].y);
+		strWrite.Format(_T("X %f Y %f\n"), pVertex[nVertexIndex-1].x, pVertex[nVertexIndex-1].y);
 		bResult = WriteParamString(strWrite);
 		if (FALSE == bResult)
 		{
@@ -511,20 +518,26 @@ BOOL CJetDxfWrite::WriteLine(PENTLINE pEntLine,double xOffset,double yOffset,dou
 	//First Caculate Point
 	startPoint.x = WriteCaculateXPos(pEntLine->Point0.x,pEntLine->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 	startPoint.y = WriteCaculateYPos(pEntLine->Point0.x,pEntLine->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
-	startPoint.x = startPoint.x - db_XOffset;
-	startPoint.y = startPoint.y - db_YOffSet;
-
 	startPoint.x *= db_XZoomFactor;
 	startPoint.y *= db_YZoomFactor;
+	startPoint.x *= -1;
+	startPoint.y *= -1;
+	startPoint.x = startPoint.x + db_XOffset;
+	startPoint.y = startPoint.y + db_YOffSet;
+
 
 	REALPOINT endPoint;
 	//First Caculate Point
 	endPoint.x = WriteCaculateXPos(pEntLine->Point1.x,pEntLine->Point1.y,xOffset,yOffset,xScale,yScale,rotation);
 	endPoint.y = WriteCaculateYPos(pEntLine->Point1.x,pEntLine->Point1.y,xOffset,yOffset,xScale,yScale,rotation);
-	endPoint.x = endPoint.x - db_XOffset;
-	endPoint.y = endPoint.y - db_YOffSet;
 	endPoint.x *= db_XZoomFactor;
 	endPoint.y *= db_YZoomFactor;
+	endPoint.x *= -1;
+	endPoint.y *= -1;
+
+	endPoint.x = endPoint.x + db_XOffset;
+	endPoint.y = endPoint.y + db_YOffSet;
+	
 
 	CString strWrite = _T("");
 	//移动至起始点
@@ -535,7 +548,7 @@ BOOL CJetDxfWrite::WriteLine(PENTLINE pEntLine,double xOffset,double yOffset,dou
 		return bResult;
 	}
 
-	strWrite.Format(_T("X %f Y %f\n"), -startPoint.x, -startPoint.y);
+	strWrite.Format(_T("X %f Y %f\n"), startPoint.x, startPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (!bResult)
 	{
@@ -565,7 +578,7 @@ BOOL CJetDxfWrite::WriteLine(PENTLINE pEntLine,double xOffset,double yOffset,dou
 		return bResult;
 	}
 
-	strWrite.Format(_T("X %f Y %f\n"), -endPoint.x, -endPoint.y);
+	strWrite.Format(_T("X %f Y %f\n"), endPoint.x, endPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (!bResult)
 	{
@@ -607,11 +620,14 @@ BOOL CJetDxfWrite::WritePoint(PENTPOINT pEntPoint,double xOffset,double yOffset,
 	centerPoint.x = WriteCaculateXPos(pEntPoint->Point0.x,pEntPoint->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 	centerPoint.y = WriteCaculateYPos(pEntPoint->Point0.x,pEntPoint->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 
-	centerPoint.x = centerPoint.x - db_XOffset;
-	centerPoint.y = centerPoint.y - db_YOffSet;
-
 	centerPoint.x *= db_XZoomFactor;
 	centerPoint.y *= db_YZoomFactor;
+	
+	centerPoint.x *= -1;
+	centerPoint.y *= -1;
+
+	centerPoint.x = centerPoint.x + db_XOffset;
+	centerPoint.y = centerPoint.y + db_YOffSet;
 
 	CString strWrite = _T("");
 	//移动至起始点
@@ -622,7 +638,7 @@ BOOL CJetDxfWrite::WritePoint(PENTPOINT pEntPoint,double xOffset,double yOffset,
 		return bResult;
 	}
 
-	strWrite.Format(_T("X%f Y%f"),-centerPoint.x,-centerPoint.y);
+	strWrite.Format(_T("X%f Y%f"),centerPoint.x,centerPoint.y);
 	bResult = WriteParamString(strWrite);
 	if(FALSE == bResult)
 	{
@@ -675,8 +691,13 @@ BOOL CJetDxfWrite::WriteCircle(PENTCIRCLE pEntCircle,double xOffset,double yOffs
 	centerPoint.x = WriteCaculateXPos(pEntCircle->Point0.x,pEntCircle->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 	centerPoint.y = WriteCaculateYPos(pEntCircle->Point0.x,pEntCircle->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 
-	centerPoint.x = centerPoint.x - db_XOffset;
-	centerPoint.y = centerPoint.y - db_YOffSet;
+	centerPoint.x *= db_XZoomFactor;
+	centerPoint.y *= db_YZoomFactor;
+	centerPoint.x *= -1;
+	centerPoint.y *= -1;
+
+	centerPoint.x = centerPoint.x + db_XOffset;
+	centerPoint.y = centerPoint.y + db_YOffSet;
 
 	double dbRadius = pEntCircle->Radius;
 	dbRadius = dbRadius*(max(db_XZoomFactor, db_YZoomFactor));
@@ -687,7 +708,7 @@ BOOL CJetDxfWrite::WriteCircle(PENTCIRCLE pEntCircle,double xOffset,double yOffs
 	CString strWrite = _T("");
 
 	//首先移动至顶点
-	strWrite.Format(_T("X %f Y%f\n"), -topPoint.x, -topPoint.y);
+	strWrite.Format(_T("X %f Y%f\n"), topPoint.x, topPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (FALSE == bResult)
 	{
@@ -716,7 +737,7 @@ BOOL CJetDxfWrite::WriteCircle(PENTCIRCLE pEntCircle,double xOffset,double yOffs
 		return bResult;
 	}
 
-	strWrite.Format(_T("CIRCCW X(%f,%f) Y(%f,%f)\n"), -topPoint.x, -centerPoint.x, -topPoint.y, -centerPoint.y);
+	strWrite.Format(_T("CIRCCW X(%f,%f) Y(%f,%f)\n"), topPoint.x, centerPoint.x, topPoint.y, centerPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (FALSE == bResult)
 	{
@@ -758,8 +779,12 @@ BOOL CJetDxfWrite::WriteArc(PENTARC pEntArc,double xOffset,double yOffset,double
 	centerPoint.x = WriteCaculateXPos(pEntArc->Point0.x,pEntArc->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 	centerPoint.y = WriteCaculateYPos(pEntArc->Point0.x,pEntArc->Point0.y,xOffset,yOffset,xScale,yScale,rotation);
 	
-	centerPoint.x = centerPoint.x - db_XOffset;
-	centerPoint.y = centerPoint.y - db_YOffSet;
+	centerPoint.x *= db_XZoomFactor;
+	centerPoint.y *= db_YZoomFactor;
+	centerPoint.x *= -1;
+	centerPoint.y *= -1;
+	centerPoint.x = centerPoint.x + db_XOffset;
+	centerPoint.y = centerPoint.y + db_YOffSet;
 
 	double dbRadius = pEntArc->Radius;
 	dbRadius = dbRadius*(max(db_XZoomFactor, db_YZoomFactor));
@@ -785,7 +810,7 @@ BOOL CJetDxfWrite::WriteArc(PENTARC pEntArc,double xOffset,double yOffset,double
 	CString strWrite = _T("");
 
 	//首先移动至顶点
-	strWrite.Format(_T("X %f Y%f\n"), -startPoint.x, -startPoint.y);
+	strWrite.Format(_T("X %f Y%f\n"), startPoint.x, startPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (FALSE == bResult)
 	{
@@ -814,7 +839,7 @@ BOOL CJetDxfWrite::WriteArc(PENTARC pEntArc,double xOffset,double yOffset,double
 		return bResult;
 	}
 
-	strWrite.Format(_T("CIRCCW X(%f,%f) Y(%f,%f)\n"), -endPoint.x, -centerPoint.x, -endPoint.y, -centerPoint.y);
+	strWrite.Format(_T("CIRCCW X(%f,%f) Y(%f,%f)\n"), endPoint.x, centerPoint.x, endPoint.y, centerPoint.y);
 	bResult = WriteParamString(strWrite);
 	if (FALSE == bResult)
 	{

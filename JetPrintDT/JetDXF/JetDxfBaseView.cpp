@@ -24,6 +24,44 @@ CJetDxfBaseView::~CJetDxfBaseView()
 BOOL CJetDxfBaseView::drwCreate()
 {
 
+	if (NULL != m_pDrawing){
+		if (NULL != m_pDrawing->Entities.pEntityHeap){
+			m_pDrawing->Tables.NumLayers = 0;
+			m_pDrawing->Tables.NumLTypes = 0;
+			m_pDrawing->Tables.NumStyles = 0;
+			m_pDrawing->Tables.NumDimStyles = 0;
+
+			m_pDrawing->Tables.CurrentLayer = 0;
+			m_pDrawing->Tables.CurrentLType = 0;
+			m_pDrawing->Tables.CurrentStyle = 0;
+			m_pDrawing->Tables.CurrentDimStyle = 0;
+
+			m_pDrawing->BlocksNumber = 0;
+			m_pDrawing->CurrentBlock = 0;
+
+			m_pDrawing->LastObjhandle = 0;
+			m_pDrawing->LastDimBlkNum = 0;
+
+			ZeroMemory(m_pDrawing->Entities.pEntityHeap, HeapSize(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Entities.pEntityHeap));
+
+			m_pDrawing->Entities.TotalSize = HeapSize(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Entities.pEntityHeap);
+			m_pDrawing->Entities.FreePos = 0;
+			m_pDrawing->Entities.LastEntityPos = 0;
+			m_pDrawing->Entities.CurrentEntityPos = 0;
+			m_pDrawing->Entities.EntitiesNumber = 0;
+
+			m_pDrawing->View.Viewable = TRUE;
+
+			return TRUE;
+		}
+		else
+		{
+			delete m_pDrawing;
+			m_pDrawing = NULL;
+		}
+	}
+
+
 	m_pDrawing = new DRAWING;
 	if (m_pDrawing == NULL)
 	{
@@ -52,27 +90,25 @@ BOOL CJetDxfBaseView::drwCreate()
 	m_pDrawing->BlocksNumber = 0;
 	m_pDrawing->CurrentBlock = 0;
 
-	m_pDrawing->LastObjhandle = 15;
+	m_pDrawing->LastObjhandle = 0;
 	m_pDrawing->LastDimBlkNum = 0;
 
+
 	// Initilize Entities Section
-	m_pDrawing->Entities.hEntities = (HDRAWING)GlobalAlloc(GHND, 65536);
-	if (m_pDrawing->Entities.hEntities == NULL)
+	m_pDrawing->Entities.pEntityHeap = (PBYTE)HeapAlloc(GetProcessHeap(), HEAP_NO_SERIALIZE, HEAP_ENTITY_SIZE);
+	if (m_pDrawing->Entities.pEntityHeap == NULL)
 	{
-		// GlobalAlloc error
-		GlobalFree(m_pDrawing->Entities.hEntities);
+		HeapFree(GetProcessHeap(), 0, m_pDrawing->Entities.pEntityHeap);
 		return FALSE;
 	}
 
-	m_pDrawing->Entities.TotalSize = GlobalSize(m_pDrawing->Entities.hEntities);
+	m_pDrawing->Entities.TotalSize = HeapSize(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Entities.pEntityHeap);
 	m_pDrawing->Entities.FreePos = 0;
 	m_pDrawing->Entities.LastEntityPos = 0;
 	m_pDrawing->Entities.CurrentEntityPos = 0;
 	m_pDrawing->Entities.EntitiesNumber = 0;
 
 	m_pDrawing->View.Viewable = TRUE;
-
-	//GlobalUnlock(m_hDrawing);
 
 	return TRUE;
 }
@@ -99,7 +135,7 @@ BOOL CJetDxfBaseView::drwDestroy()
 
 	// Free all allocated memory by polylines before destroy entire drawing
 	// Entities Section
-	if (drwFindEntity_Direct(NULL, &EntityHeader, &EntityData, FIND_FIRST)>0)
+	if (drwFindEntity_Direct(NULL, &EntityHeader, &EntityData, FIND_FIRST) > 0)
 	{
 		do{
 			if (EntityHeader.EntityType == ENT_POLYLINE)
@@ -107,29 +143,35 @@ BOOL CJetDxfBaseView::drwDestroy()
 				pPLine = ((PENTPOLYLINE)&EntityData);
 				delete ((PENTPOLYLINE)&EntityData)->pVertex;
 			}
-		} while (drwFindEntity_Direct(NULL, &EntityHeader, &EntityData, FIND_NEXT)>0);
+		} while (drwFindEntity_Direct(NULL, &EntityHeader, &EntityData, FIND_NEXT) > 0);
 	}
 	// Blocks Section
-	if (drwFindBlock_Direct(FIND_FIRST, &BlockHeader)>0)
+	if (drwFindBlock_Direct(FIND_FIRST, &BlockHeader) > 0)
 	{
 		do{
-			if (drwFindEntity_Direct(CA2W(BlockHeader.Name), &EntityHeader, &EntityData, FIND_FIRST)>0)
+			if (drwFindEntity_Direct(CA2W(BlockHeader.Name), &EntityHeader, &EntityData, FIND_FIRST) > 0)
 			{
 				do{
 					if (EntityHeader.EntityType == ENT_POLYLINE)
 						delete ((PENTPOLYLINE)&EntityData)->pVertex;
-				} while (drwFindEntity_Direct(CA2W(BlockHeader.Name), &EntityHeader, &EntityData, FIND_NEXT)>0);
+				} while (drwFindEntity_Direct(CA2W(BlockHeader.Name), &EntityHeader, &EntityData, FIND_NEXT) > 0);
 			}
-		} while (drwFindBlock_Direct(FIND_NEXT, &BlockHeader)>0);
+		} while (drwFindBlock_Direct(FIND_NEXT, &BlockHeader) > 0);
 	}
 
-
-	// Free Entities Memory
-	GlobalFree(m_pDrawing->Entities.hEntities);
+	if (m_pDrawing->Entities.pEntityHeap){
+		// Free Entities Memory
+		HeapFree(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Entities.pEntityHeap);
+		m_pDrawing->Entities.pEntityHeap = NULL;
+	}
+	
 
 	// Free Blocks Memory
-	for (unsigned int i = 0; i<m_pDrawing->BlocksNumber; i++)
-		GlobalFree(m_pDrawing->Blocks[i].Entities.hEntities);
+	for (unsigned int i = 0; i < m_pDrawing->BlocksNumber; i++){
+		HeapFree(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Blocks[i].Entities.pEntityHeap);
+		m_pDrawing->Blocks[i].Entities.pEntityHeap = NULL;
+	}
+		
 
 
 	return TRUE;
@@ -712,15 +754,15 @@ OBJHANDLE CJetDxfBaseView::drwAddBlock_Direct(PBLOCKHEADER pBlockHeader)
 	CopyMemory(&m_pDrawing->Blocks[BlockNumber], pBlockHeader, sizeof(BLOCKHEADER));
 	m_pDrawing->Blocks[BlockNumber].Objhandle = NewBlockObjhandle;
 
-	// Initilize Entities Section of new block
-	m_pDrawing->Blocks[BlockNumber].Entities.hEntities = (HDRAWING)GlobalAlloc(GHND, 16384);
-	if (m_pDrawing->Blocks[BlockNumber].Entities.hEntities == NULL)
+	// Initialize Entities Section of new block
+	m_pDrawing->Blocks[BlockNumber].Entities.pEntityHeap = (PBYTE)HeapAlloc(GetProcessHeap(), HEAP_NO_SERIALIZE, HEAP_BLOCK_SIZE);
+	if (m_pDrawing->Blocks[BlockNumber].Entities.pEntityHeap == NULL)
 	{
 		// GlobalAlloc error
 		return 0;
 	}
 
-	m_pDrawing->Blocks[BlockNumber].Entities.TotalSize = GlobalSize(m_pDrawing->Blocks[BlockNumber].Entities.hEntities);
+	m_pDrawing->Blocks[BlockNumber].Entities.TotalSize = HeapSize(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Blocks[BlockNumber].Entities.pEntityHeap);
 	m_pDrawing->Blocks[BlockNumber].Entities.FreePos = 0;
 	m_pDrawing->Blocks[BlockNumber].Entities.LastEntityPos = 0;
 	m_pDrawing->Blocks[BlockNumber].Entities.CurrentEntityPos = 0;
@@ -772,14 +814,14 @@ BOOL CJetDxfBaseView::drwDeleteBlock(OBJHANDLE BlockObjhandle)
 		return FALSE;
 
 	BlockNumber = FindBlockPosByHandle(BlockObjhandle);
-	if (BlockNumber<0)
+	if (BlockNumber < 0)
 	{
 		// The block cannot be found
 		return FALSE;
 	}
 
 	// Free entites memory related to this block
-	if (GlobalFree(m_pDrawing->Blocks[BlockNumber].Entities.hEntities) != NULL)
+	if (FALSE == HeapFree(GetProcessHeap(), HEAP_NO_SERIALIZE, m_pDrawing->Blocks[BlockNumber].Entities.pEntityHeap))
 	{
 		// error in GlobalFree function
 		return FALSE;
@@ -807,44 +849,25 @@ BOOL CJetDxfBaseView::drwDeleteBlock(OBJHANDLE BlockObjhandle)
 *-------------------------------------------------------------------*/
 BOOL CJetDxfBaseView::AddToEntitiesList(PENTITIES pEntities, PENTITYHEADER pEntityHeader, LPVOID pEntityData, WORD EntitySize)
 {
-	LPVOID		pEntitiesData;
-
-	// Initialize pEntitiesData ----------
-	pEntitiesData = GlobalLock(pEntities->hEntities);
-	if (pEntitiesData == NULL)
+	if (pEntities->pEntityHeap == NULL)
 	{
-		// GlobalLock error
 		return FALSE;
 	}
 
 	// Check if we need more memory space for entities data
 	if ((pEntities->FreePos + sizeof(ENTITYHEADER) + EntitySize) >= pEntities->TotalSize)
 	{
-		// Unlock hDrawing -------------------
-		GlobalUnlock(pEntities->hEntities);
-		/*		if(!GlobalUnlock(pEntities->hEntities) && (GetLastError()!=NO_ERROR))
-		{
-		// memory error
-		return FALSE;
-		}*/
+		pEntities->pEntityHeap = (PBYTE)HeapReAlloc(
+			GetProcessHeap(),
+			HEAP_NO_SERIALIZE,
+			pEntities->pEntityHeap,
+			pEntities->TotalSize + HEAP_ENTITY_SIZE);
 
-		pEntities->hEntities = GlobalReAlloc(
-			pEntities->hEntities,
-			pEntities->TotalSize + 65536,
-			GHND);
-
-		pEntities->TotalSize = GlobalSize(pEntities->hEntities);
+		pEntities->TotalSize = HeapSize(GetProcessHeap(), HEAP_NO_SERIALIZE, pEntities->pEntityHeap);
 		if ((pEntities->FreePos + sizeof(ENTITYHEADER) + EntitySize) >= pEntities->TotalSize)
 		{
 			// Memory limitation error
 			return FALSE;
-		}
-
-		pEntitiesData = GlobalLock(pEntities->hEntities);
-		if (pEntitiesData == NULL)
-		{
-			// GlobalLock error
-			return NULL;
 		}
 	}
 
@@ -853,20 +876,13 @@ BOOL CJetDxfBaseView::AddToEntitiesList(PENTITIES pEntities, PENTITYHEADER pEnti
 	pEntityHeader->NextEntityPos = pEntities->FreePos + sizeof(ENTITYHEADER) + EntitySize;
 
 	// Copy entity data to memory
-	CopyMemory((LPVOID)((DWORD)pEntitiesData + pEntities->FreePos), pEntityHeader, sizeof(ENTITYHEADER));
-	CopyMemory((LPVOID)((DWORD)pEntitiesData + pEntities->FreePos + sizeof(ENTITYHEADER)), (LPVOID)pEntityData, EntitySize);
+	CopyMemory((LPVOID)((DWORD)pEntities->pEntityHeap + pEntities->FreePos), pEntityHeader, sizeof(ENTITYHEADER));
+	CopyMemory((LPVOID)((DWORD)pEntities->pEntityHeap + pEntities->FreePos + sizeof(ENTITYHEADER)), (LPVOID)pEntityData, EntitySize);
 
 	// Update pointers
 	pEntities->LastEntityPos = pEntities->FreePos;
 	pEntities->FreePos += sizeof(ENTITYHEADER) + EntitySize;
 
-	// Unlock hDrawing -------------------
-	GlobalUnlock(pEntities->hEntities);
-	/*	if(!GlobalUnlock(pEntities->hEntities) && (GetLastError()!=NO_ERROR))
-	{
-	// memory error
-	return FALSE;
-	}*/
 
 	return TRUE;
 }
@@ -1105,21 +1121,19 @@ BOOL CJetDxfBaseView::drwDeleteEntity(LPCTSTR strBlockName, OBJHANDLE EntityHand
 *-------------------------------------------------------------------*/
 DWORD CJetDxfBaseView::GetCurrentEntityData(PENTITIES pEntities, PENTITYHEADER pEntityHeader, LPVOID pEntityData)
 {
-	LPVOID	pEntitiesData;
 	DWORD	EntityDataSize;
 
 	// Initialize pEntitiesData ----------
-	pEntitiesData = GlobalLock(pEntities->hEntities);
-	if (pEntitiesData == NULL)
+	if (pEntities->pEntityHeap == NULL)
 	{
 		// GlobalLock error
 		return 0;
 	}
 
-	CopyMemory(pEntityHeader, (LPVOID)((DWORD)pEntitiesData + pEntities->CurrentEntityPos), sizeof(ENTITYHEADER));
+	CopyMemory(pEntityHeader, (LPVOID)((DWORD)pEntities->pEntityHeap + pEntities->CurrentEntityPos), sizeof(ENTITYHEADER));
 
 	EntityDataSize = pEntityHeader->NextEntityPos - (pEntities->CurrentEntityPos + sizeof(ENTITYHEADER));
-	CopyMemory(pEntityData, (LPVOID)((DWORD)pEntitiesData + pEntities->CurrentEntityPos + sizeof(ENTITYHEADER)), EntityDataSize);
+	CopyMemory(pEntityData, (LPVOID)((DWORD)pEntities->pEntityHeap + pEntities->CurrentEntityPos + sizeof(ENTITYHEADER)), EntityDataSize);
 
 	return EntityDataSize;
 }
@@ -1135,21 +1149,19 @@ DWORD CJetDxfBaseView::GetCurrentEntityData(PENTITIES pEntities, PENTITYHEADER p
 *-------------------------------------------------------------------*/
 DWORD CJetDxfBaseView::SetEntityData(PENTITIES pEntities, PENTITYHEADER pEntityHeader, LPVOID pEntityData, DWORD dwEntityPos)
 {
-	LPVOID	pEntitiesData;
 	DWORD	EntityDataSize;
 
 	// Initialize pEntitiesData ----------
-	pEntitiesData = GlobalLock(pEntities->hEntities);
-	if (pEntitiesData == NULL)
+	if (pEntities->pEntityHeap == NULL)
 	{
 		// GlobalLock error
 		return 0;
 	}
 
-	CopyMemory((LPVOID)((DWORD)pEntitiesData + dwEntityPos), pEntityHeader, sizeof(ENTITYHEADER));
+	CopyMemory((LPVOID)((DWORD)pEntities->pEntityHeap + dwEntityPos), pEntityHeader, sizeof(ENTITYHEADER));
 
 	EntityDataSize = pEntityHeader->NextEntityPos - (dwEntityPos + sizeof(ENTITYHEADER));
-	CopyMemory((LPVOID)((DWORD)pEntitiesData + dwEntityPos + sizeof(ENTITYHEADER)), pEntityData, EntityDataSize);
+	CopyMemory((LPVOID)((DWORD)pEntities->pEntityHeap + dwEntityPos + sizeof(ENTITYHEADER)), pEntityData, EntityDataSize);
 
 	return EntityDataSize;
 }

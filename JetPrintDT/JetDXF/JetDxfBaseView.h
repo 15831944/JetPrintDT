@@ -7,7 +7,8 @@
 #define		MAX_LAYERS		128
 #define		MAX_LTYPES		128
 #define		MAX_STYLES		128
-
+#define     HEAP_ENTITY_SIZE 512*1024
+#define     HEAP_BLOCK_SIZE  128*1024
 
 // Tables ***************************
 typedef struct tag_TABLES

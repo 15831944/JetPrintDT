@@ -56,7 +56,8 @@ private:
 	double m_dbDXFImageOrignHeight;
 	double m_dbDXFImageDestWidth;
 	double m_dbDXFImageDestHeight;
-
+	double m_dbxzoomfactor;
+	double m_dbyzoomfactor;
 	//file load
 	bool m_bFileOpenedOK;
 	

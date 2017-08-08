@@ -563,6 +563,7 @@ typedef struct tag_ENTITYHEADER
 typedef struct tag_ENTITIES
 {
 	HGLOBAL		hEntities;
+	PBYTE       pEntityHeap;
 	DWORD		TotalSize;
 	DWORD		FreePos;
 	DWORD		LastEntityPos;

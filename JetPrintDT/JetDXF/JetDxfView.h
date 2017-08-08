@@ -20,6 +20,7 @@ public:
 	~CJetDxfView();
 
 	BOOL drwInitialize();
+	BOOL drwUninitialize();
 
 	BOOL drwInitView(
 		int			x,					// horizontal position of drawing window

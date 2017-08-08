@@ -27,6 +27,8 @@ CPrintFileOperateView::CPrintFileOperateView()
 	m_dbDXFImageOrignHeight = 0.0;
 	m_dbDXFImageDestWidth = 0.0;
 	m_dbDXFImageDestHeight = 0.0;
+	m_dbxzoomfactor = 1.0;
+	m_dbyzoomfactor = 1.0;
 
 	m_bFileOpenedOK = false;
 	m_bIsFileDownloading = false;
@@ -46,6 +48,7 @@ CPrintFileOperateView::CPrintFileOperateView()
 
 CPrintFileOperateView::~CPrintFileOperateView()
 {
+	m_JetDrawView.m_Drawing.drwUninitialize();
 }
 
 void CPrintFileOperateView::DoDataExchange(CDataExchange* pDX)
@@ -212,7 +215,30 @@ void CPrintFileOperateView::OnInitialUpdate()
 		m_pDownLoadFileThread->PostThreadMessage(UM_FILEDOWNLOAD, 0, 0);
 }
 
-
+/**************************************************************************************/
+/* assume (x,y) is any point in the patten                                            */
+/* assume (xoffset,yoffset) is the the compensation value that move the patten to     */
+/* the center,xoffset = abs(left+right)/2,yoffset = abs(top + bottom)/2               */
+/* assume (xwidth,yheight) is the patten size                                         */
+/*  xwidth=abs(right-left),yheight = abs(bottom-top)                                  */
+/* assume (xjet,yjet) is the offset between the jet and placode center                */
+/* assume (xprintorignpos,yprintorignpos) is the print orign position                 */
+/* fisrt:move the patten to the placode center                                        */
+/* (x-xoffset,y-yoffset)                                                              */
+/* second: move patten to print orign position                                        */
+/* (x-xoffset+xprintorignpos,y-yoffset+yprintorignpos)                                */
+/* third: central symmetry                                                            */
+/* (-x+xoffset-xprintorignpos,-y+yoffset-yprintorignpos)                              */
+/* forth: jet compensation                                                            */
+/* (-x+xoffset-xprintorignpos+xjet,-y+yoffset-ypringorignpos+yjet)                    */
+/* so the final offset value is:                                                      */
+/* (xoffset-xpringorignpos+xjet, yoffset-ypringorignpos+yjet)                         */
+/*additional information:                                                             */
+/* if the patten is zoomed ,the (xoffset,yoffset) and (xwidth,yheight) should be      */
+/* recalculated:                                                                      */
+/* xoffset = xoffset*xzoomfactor, yoffset = yoffset*yzoomfactor                       */
+/* xwidth = xwidth*xzoomfactor, yheight = yheight*yzoomfactor                         */
+/**************************************************************************************/
 void CPrintFileOperateView::OnBnClickedJetprintdtPrintFileoperateDxfDecodeButton()
 {
 	// TODO:  在此添加控件通知处理程序代码
@@ -263,8 +289,6 @@ void CPrintFileOperateView::OnBnClickedJetprintdtPrintFileoperateDxfDecodeButton
 		double xOffset = (double)(right + left) / 2.0;
 		double yOffset = (double)(top + bottom) / 2.0;
 
-		xOffset = xOffset - db_XOrignPos;
-		yOffset = yOffset - db_YOrignPos;
 
 		double xScale = 0.0;
 		if (IsEqual(0.0 ,m_dbDXFImageOrignWidth))
@@ -277,6 +301,12 @@ void CPrintFileOperateView::OnBnClickedJetprintdtPrintFileoperateDxfDecodeButton
 			yScale = 0.0;
 		else
 			yScale = dbDestHeight / m_dbDXFImageOrignHeight;
+
+		m_dbxzoomfactor = xScale;
+		m_dbyzoomfactor = yScale;
+
+		xOffset = xOffset*xScale - db_XOrignPos;
+		yOffset = yOffset*yScale - db_YOrignPos;
 
 		m_JetDxfWriteProg.InitJetWriteOffset(xOffset, yOffset);
 		m_JetDxfWriteProg.InitJetWriteZoomFactor(xScale, yScale);
@@ -439,6 +469,36 @@ void CPrintFileOperateView::OnBnClickedJetprintdtPrintFileoperateFileFiledownloa
 	}
 }
 
+
+/**************************************************************************************/
+/* note:match print is used to print patten match with the placode, the print         */
+/*      reference point is the top left,so the compensation should be calculated      */
+/*      by the following step                                                         */
+/* assume (x,y) is any point in the patten                                            */
+/* assume (xoffset,yoffset) is the the compensation value that move the patten to     */
+/* the center,xoffset = abs(left+right)/2,yoffset = abs(top + bottom)/2               */
+/* assume (xwidth,yheight) is the patten size                                         */
+/*  xwidth=abs(right-left),yheight = abs(bottom-top)                                  */
+/* assume (xjet,yjet) is the offset between the jet and placode center                */
+/* assume (xprintorignpos,yprintorignpos) is the print orign position                 */
+/* fisrt:move the patten to the placode center                                        */
+/* (x-xoffset,y-yoffset)                                                              */
+/* second:top left match with the placode center                                      */
+/* (x-xoffset+xwidth/2,y-yoffset-yheight/2)                                           */
+/* third: move patten to print orign position                                         */
+/* (x-xoffset+xwidth/2+xprintorignpos,y-yoffset-yheight/2+yprintorignpos)             */
+/* forth: central symmetry                                                            */
+/* (-x+xoffset-xwidth/2-xprintorignpos,-y+yoffset+yheight/2-yprintorignpos)           */
+/* fifth: jet compensation                                                            */
+/* (-x+xoffset-xwidth/2-xprintorignpos+xjet,-y+yoffset+yheight/2-ypringorignpos+yjet) */
+/* so the final offset value is:                                                      */
+/* (xoffset-xwidth/2-xpringorignpos+xjet, yoffset+yheight/2-ypringorignpos+yjet)      */
+/*additional information:                                                             */
+/* if the patten is zoomed ,the (xoffset,yoffset) and (xwidth,yheight) should be      */
+/* recalculated:                                                                      */
+/* xoffset = xoffset*xzoomfactor, yoffset = yoffset*yzoomfactor                       */
+/* xwidth = xwidth*xzoomfactor, yheight = yheight*yzoomfactor                         */
+/**************************************************************************************/
 void CPrintFileOperateView::MatchPrintDecodeFile(double dbXOrignPos, double dbYOrignPos,double dbXJet,double dbYJet){
 	CMainFrame* pMainFrame = (CMainFrame*)(AfxGetApp()->m_pMainWnd);;
 	CPrintMotionControlView *pView = nullptr;
@@ -475,12 +535,12 @@ void CPrintFileOperateView::MatchPrintDecodeFile(double dbXOrignPos, double dbYO
 		top = m_JetDrawView.m_Drawing.borderRect.top;
 		bottom = m_JetDrawView.m_Drawing.borderRect.bottom;
 
-		double xWidth = -abs((double)(right - left) / 2.0);
-		double yHeight = -abs((double)(top - bottom) / 2.0);
-		double xOffset = (double)(right + left) / 2.0;
-		double yOffset = (double)(top + bottom) / 2.0;
+		double xWidth = abs((double)(right - left) / 2.0*m_dbxzoomfactor);
+		double yHeight = abs((double)(top - bottom) / 2.0*m_dbyzoomfactor);
+		double xOffset = (double)(right + left) / 2.0*m_dbxzoomfactor;
+		double yOffset = (double)(top + bottom) / 2.0*m_dbyzoomfactor;
 
-		xOffset = xOffset+xWidth + dbXJet - dbXOrignPos;
+		xOffset = xOffset-xWidth + dbXJet - dbXOrignPos;
 		yOffset = yOffset+yHeight + dbYJet - dbYOrignPos;
 
 		m_JetDxfWriteProg.InitJetWriteOffset(xOffset, yOffset);
@@ -595,8 +655,8 @@ void CPrintFileOperateView::OnBnClickedJetprintdtPrintFileoperatePrintorignButto
 		double xOffset = (double)(right + left) / 2.0;
 		double yOffset = (double)(top + bottom) / 2.0;
 
-		xOffset = xOffset - db_XOrignPos;
-		yOffset = yOffset - db_YOrignPos;
+		xOffset = xOffset*m_dbxzoomfactor - db_XOrignPos;
+		yOffset = yOffset*m_dbyzoomfactor - db_YOrignPos;
 
 		m_JetDxfWriteProg.InitJetWriteOffset(xOffset, yOffset);
 		m_JetDxfWriteProg.InitJetWriteView(m_JetDrawView.m_Drawing.m_pJetDxfDimView);
@@ -685,6 +745,7 @@ CString CPrintFileOperateView::SetProgPath()
 	return strProgFolder;
 }
 
+
 bool CPrintFileOperateView::LoadAndImportFile(CString FileName)
 {
 	bool bResult = false;
@@ -756,8 +817,8 @@ bool CPrintFileOperateView::LoadAndImportFile(CString FileName)
 	double yOffset = (double)(top + bottom) / 2.0;
 
 	
-	xOffset = xOffset - db_XOrignPos;
-	yOffset = yOffset - db_YOrignPos;
+	xOffset = xOffset*m_dbxzoomfactor - db_XOrignPos;
+	yOffset = yOffset*m_dbyzoomfactor - db_YOrignPos;
 
 	m_JetDxfWriteProg.InitJetWriteOffset(xOffset, yOffset);
 	m_JetDxfWriteProg.InitJetWriteView(m_JetDrawView.m_Drawing.m_pJetDxfDimView);

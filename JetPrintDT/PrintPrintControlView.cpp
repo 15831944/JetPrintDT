@@ -53,6 +53,10 @@ CPrintPrintControlView::CPrintPrintControlView()
 
 CPrintPrintControlView::~CPrintPrintControlView()
 {
+	if (NULL != m_JetDrawView.m_Drawing.m_pJetDxfDimView)
+	{
+		//m_JetDrawView.m_Drawing.drwUninitialize();
+	}
 }
 
 void CPrintPrintControlView::DoDataExchange(CDataExchange* pDX)

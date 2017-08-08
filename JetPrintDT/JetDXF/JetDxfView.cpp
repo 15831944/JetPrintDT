@@ -31,18 +31,28 @@ CJetDxfView::~CJetDxfView()
 	}
 }
 
+BOOL CJetDxfView::drwUninitialize(){
+	if (NULL != m_pJetDxfDimView){
+		m_pJetDxfDimView->drwDestroy();
+	}
+
+	return TRUE;
+}
+
 BOOL CJetDxfView::drwInitialize()
 {
-	m_pJetDxfDimView = new CJetDxfDimView;
-	if(NULL != m_pJetDxfDimView)
+	if (NULL == m_pJetDxfDimView){
+		m_pJetDxfDimView = new CJetDxfDimView;
+	}
+	if (NULL != m_pJetDxfDimView)
 	{
 		m_pJetDxfDimView->drwCreate();
 	}
 
-	m_pJetDxfTextView = new CJetDxfTextView;
-	if(NULL == m_pJetDxfTextView)
+	
+	if (NULL == m_pJetDxfTextView)
 	{
-		//do something
+		m_pJetDxfTextView = new CJetDxfTextView;
 	}
 
 	return TRUE;
